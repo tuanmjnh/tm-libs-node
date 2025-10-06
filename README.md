@@ -1,3 +1,3 @@
-# tm-node
+# tm-libs-node
 # setup
-npm install tm-node
+npm install tm-libs-node
