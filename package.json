@@ -1,0 +1,68 @@
+{
+  "name": "tm-libs-node",
+  "version": "1.0.0",
+  "description": "tm-libs-node",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.js",
+      "require": "./dist/*.js",
+      "default": "./dist/*.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "node build.mjs",
+    "build:cp": "swc src -d dist --source-maps --copy-files",
+    "build:tsc": "tsc && tsc-alias && npm run copy",
+    "test": "ts-node --esm test/test.ts",
+    "test:npx": "npx ts-node test/test.ts",
+    "remove": "@powershell rm -r -fo dist",
+    "copy": "@powershell copy package.json ./dist && @powershell copy README.md ./dist",
+    "publish:lib": "npm run build && cd dist && npm publish",
+    "git:cache": "git rm -r --cached . && git add ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuanmjnh/tm-libs-node.git"
+  },
+  "keywords": [
+    "tm-libs",
+    "tm-libs-node"
+  ],
+  "author": "tuanmjnh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tuanmjnh/tm-libs-node/issues"
+  },
+  "homepage": "https://github.com/tuanmjnh/tm-libs-node#readme",
+  "dependencies": {
+    "request-ip": "^3.3.0"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.7.8",
+    "@swc/core": "^1.13.5",
+    "@types/node": "^24.6.2",
+    "@types/request-ip": "^0.0.41",
+    "esbuild": "^0.25.10",
+    "glob": "^11.0.3",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.16",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.9"
+  },
+  "overrides": {
+    "tmp": "^0.2.4"
+  }
+}

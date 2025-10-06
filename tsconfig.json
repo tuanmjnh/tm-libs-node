@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "rootDir": "src",
+    "outDir": "dist",
+    "declaration": true, // 👈 Phải có: Kích hoạt việc tạo file .d.ts
+    "declarationDir": "dist", // 👈 Phải có: Đặt file .d.ts vào thư mục dist
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "isolatedModules": true
+  },
+  "include": [
+    "src/**/*"
+  ], // 🔹 Only build files in src
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test",
+    "**/*.spec.ts"
+  ] // 🔹 Bỏ qua test, dist, node_modules
+}
